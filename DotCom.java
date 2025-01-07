@@ -16,7 +16,7 @@ class DotCom
             }
 
         if (numOfHits == localtions.length)
-            result = "kill"
+            result = "kill";
 
         return result;
     }
