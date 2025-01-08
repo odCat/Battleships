@@ -32,7 +32,7 @@ class DotComGame
         try{
             result = scan.next();
         } catch (Exception e) {
-            System.out.println("IOException: " + e);
+            System.out.println("Exception: " + e);
         }
 
         return result;
