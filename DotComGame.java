@@ -10,8 +10,7 @@ class DotComGame
         Scanner scan = new Scanner(System.in);
 
         while (true) {
-            System.out.print("Take a guess: ");
-            String guess = scan.next();
+            String guess = getUserInput(scan, "Take a guess:");
             String result = dotCom.checkHit(guess);
             ++numOfGuesses;
             if (result.equals("kill")) {
@@ -23,5 +22,19 @@ class DotComGame
         }
 
         System.out.println("You took " + numOfGuesses + " guesses");
+    }
+
+    public static String getUserInput(Scanner scan, String prompt)
+    {
+        String result = null;
+
+        System.out.print(prompt + " ");
+        try{
+            result = scan.next();
+        } catch (Exception e) {
+            System.out.println("IOException: " + e);
+        }
+
+        return result;
     }
 }
