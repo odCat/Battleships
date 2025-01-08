@@ -15,7 +15,7 @@ class DotCom
                 break;
             }
 
-        if (numOfHits == localtions.length)
+        if (numOfHits == locations.length)
             result = "kill";
 
         return result;
