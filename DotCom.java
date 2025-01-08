@@ -1,7 +1,7 @@
 class DotCom
 {
-    short [] locations = {2, 3, 4};
-    short numOfHits = 0;
+    private short [] locations = {2, 3, 4};
+    private short numOfHits = 0;
 
     public String checkHit(String guess)
     {
