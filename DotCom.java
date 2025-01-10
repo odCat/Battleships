@@ -8,10 +8,11 @@ class DotCom
         int userGuess = Integer.parseInt(guess);
         String result = "miss";
 
-        for (int cell : locations)
-            if (userGuess == cell) {
+        for (int i = 0; i < 3; ++i)
+            if (userGuess == locations[i]) {
                 result = "hit";
                 ++numOfHits;
+                locations[i] = -1;
                 break;
             }
 
