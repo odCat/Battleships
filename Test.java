@@ -7,24 +7,26 @@ class Test {
 
 
         if (dot.checkHit("0") == "miss")
-            result = "passed";
+            result = "pass";
         else
-            result = "failed";
+            result = "fail";
 
         System.out.println(result);
 
         if (dot.checkHit("2") == "hit")
-            result = "passed";
+            result = "pass";
         else
-            result = "failed";
+            result = "fail";
 
         System.out.println(result);
 
         dot.checkHit("3");
         if (dot.checkHit("4") == "kill")
-            result = "passed";
+            result = "pass";
         else
-            result = "failed";
+            result = "fail";
+
+        System.out.println(result);
 
         TestHitingTheSameSport();
     }
