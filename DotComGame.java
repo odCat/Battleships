@@ -22,6 +22,8 @@ class DotComGame
         }
 
         System.out.println("You took " + numOfGuesses + " guesses");
+
+        scan.close();
     }
 
     public static String getUserInput(Scanner scan, String prompt)
