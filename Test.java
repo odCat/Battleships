@@ -2,9 +2,14 @@ class Test {
 
     public static void main (String[] args)
     {
+        TestHittingMissingAndKilling();
+        TestHittingTheSameSpot();
+    }
+
+    public static void TestHittingMissingAndKilling()
+    {
         String result;
         DotCom dot = new DotCom();
-
 
         if (dot.checkHit("0").equals("miss"))
             result = "pass";
@@ -27,11 +32,9 @@ class Test {
             result = "fail";
 
         System.out.println(result);
-
-        TestHitingTheSameSpot();
     }
 
-    public static void TestHitingTheSameSpot()
+    public static void TestHittingTheSameSpot()
     {
         String result = null;
         DotCom dot = new DotCom();
