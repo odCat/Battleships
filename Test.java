@@ -6,14 +6,14 @@ class Test {
         DotCom dot = new DotCom();
 
 
-        if (dot.checkHit("0") == "miss")
+        if (dot.checkHit("0").equals("miss"))
             result = "pass";
         else
             result = "fail";
 
         System.out.println(result);
 
-        if (dot.checkHit("2") == "hit")
+        if (dot.checkHit("2").equals("hit"))
             result = "pass";
         else
             result = "fail";
@@ -21,23 +21,23 @@ class Test {
         System.out.println(result);
 
         dot.checkHit("3");
-        if (dot.checkHit("4") == "kill")
+        if (dot.checkHit("4").equals("kill"))
             result = "pass";
         else
             result = "fail";
 
         System.out.println(result);
 
-        TestHitingTheSameSport();
+        TestHitingTheSameSpot();
     }
 
-    public static void TestHitingTheSameSport()
+    public static void TestHitingTheSameSpot()
     {
         String result = null;
         DotCom dot = new DotCom();
 
         dot.checkHit("2");
-        if (dot.checkHit("2") == "miss")
+        if (dot.checkHit("2").equals("miss"))
             result = "pass";
         else
             result = "fail";

@@ -1,23 +1,30 @@
-class DotCom
+import java.util.ArrayList;
+
+public class DotCom
 {
-    private short [] locations = {2, 3, 4};
+    private ArrayList<Integer> locations;
     private short numOfHits = 0;
+
+    public DotCom() {
+        locations = new ArrayList<>();
+        this.locations.add(2);
+        this.locations.add(3);
+        this.locations.add(4);
+    }
 
     public String checkHit(String guess)
     {
-        int userGuess = Integer.parseInt(guess);
+        Integer userGuess = Integer.parseInt(guess);
         String result = "miss";
 
-        for (int i = 0; i < 3; ++i)
-            if (userGuess == locations[i]) {
+        this.numOfHits++;
+        if (this.locations.contains(userGuess)) {
+            this.locations.remove(userGuess);
+            if (this.locations.size() == 0)
+                result = "kill";
+            else
                 result = "hit";
-                ++numOfHits;
-                locations[i] = -1;
-                break;
-            }
-
-        if (numOfHits == locations.length)
-            result = "kill";
+        }
 
         return result;
     }
