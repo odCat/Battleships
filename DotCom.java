@@ -7,10 +7,16 @@ public class DotCom
 
     public DotCom() {
         locations = new ArrayList<>();
-        this.locations.add(2);
-        this.locations.add(3);
-        this.locations.add(4);
+        Integer i = (int) Math.random()*5;
+        this.locations.add(i);
+        this.locations.add(i+1);
+        this.locations.add(i+2);
     }
+
+    public DotCom(ArrayList<Integer> locations){
+        this.locations = new ArrayList<>(locations);
+    }
+
 
     public String checkHit(String guess)
     {

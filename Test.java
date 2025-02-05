@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 class Test {
 
     public static void main (String[] args)
@@ -8,8 +10,12 @@ class Test {
 
     public static void TestHittingMissingAndKilling()
     {
-        String result;
-        DotCom dot = new DotCom();
+        String result = null;
+        ArrayList<Integer> locations = new ArrayList<>();
+        locations.add(2);
+        locations.add(3);
+        locations.add(4);
+        DotCom dot = new DotCom(locations);
 
         if (dot.checkHit("0").equals("miss"))
             result = "pass";
@@ -37,7 +43,11 @@ class Test {
     public static void TestHittingTheSameSpot()
     {
         String result = null;
-        DotCom dot = new DotCom();
+        ArrayList<Integer> locations = new ArrayList<>();
+        locations.add(2);
+        locations.add(3);
+        locations.add(4);
+        DotCom dot = new DotCom(locations);
 
         dot.checkHit("2");
         if (dot.checkHit("2").equals("miss"))
