@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 
+
 class Test {
 
     public static void main (String[] args)
@@ -11,46 +12,48 @@ class Test {
     public static void TestHittingMissingAndKilling()
     {
         String result = null;
-        ArrayList<Integer> locations = new ArrayList<>();
-        locations.add(2);
-        locations.add(3);
-        locations.add(4);
-        DotCom dot = new DotCom(locations);
+        ArrayList<Cell> locations = new ArrayList<>();
+        locations.add(new Cell(2, 0));
+        locations.add(new Cell(3, 0));
+        locations.add(new Cell(4, 0));
+        DotCom dot = new DotCom(locations, 1);
 
-        if (dot.checkHit("0").equals("miss"))
+        if (dot.checkHit("00").equals("miss"))
             result = "pass";
         else
             result = "fail";
 
         System.out.println(result);
 
-        if (dot.checkHit("2").equals("hit"))
+        if (dot.checkHit("20").equals("hit"))
             result = "pass";
         else
             result = "fail";
 
         System.out.println(result);
 
-        dot.checkHit("3");
-        if (dot.checkHit("4").equals("kill"))
+        dot.checkHit("30");
+        if (dot.checkHit("40").equals("kill"))
             result = "pass";
         else
             result = "fail";
 
         System.out.println(result);
+        // System.out.println(dot);
     }
 
     public static void TestHittingTheSameSpot()
     {
         String result = null;
-        ArrayList<Integer> locations = new ArrayList<>();
-        locations.add(2);
-        locations.add(3);
-        locations.add(4);
-        DotCom dot = new DotCom(locations);
+        ArrayList<Cell> locations = new ArrayList<>();
 
-        dot.checkHit("2");
-        if (dot.checkHit("2").equals("miss"))
+        locations.add(new Cell(2, 0));
+        locations.add(new Cell(3, 0));
+        locations.add(new Cell(4, 0));
+        DotCom dot = new DotCom(locations, 2);
+
+        dot.checkHit("20");
+        if (dot.checkHit("20").equals("miss"))
             result = "pass";
         else
             result = "fail";
