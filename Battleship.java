@@ -4,7 +4,6 @@ import java.util.ArrayList;
 public class Battleship
 {
     private ArrayList<Cell> locations;
-    private short numOfHits = 0;
 
     public Battleship() {
         locations = new ArrayList<>(3);
@@ -25,7 +24,6 @@ public class Battleship
         Cell userGuess = new Cell(column, row);
         String result = "miss";
 
-        this.numOfHits++;
         if (this.locations.contains(userGuess)) {
             this.locations.remove(userGuess);
             if (this.locations.size() == 0)
