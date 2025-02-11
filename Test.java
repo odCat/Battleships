@@ -16,7 +16,7 @@ class Test {
         locations.add(new Cell(2, 0));
         locations.add(new Cell(3, 0));
         locations.add(new Cell(4, 0));
-        DotCom dot = new DotCom(locations, 1);
+        Battleship dot = new Battleship(locations, 1);
 
         if (dot.checkHit("00").equals("miss"))
             result = "pass";
@@ -39,7 +39,6 @@ class Test {
             result = "fail";
 
         System.out.println(result);
-        // System.out.println(dot);
     }
 
     public static void TestHittingTheSameSpot()
@@ -50,7 +49,7 @@ class Test {
         locations.add(new Cell(2, 0));
         locations.add(new Cell(3, 0));
         locations.add(new Cell(4, 0));
-        DotCom dot = new DotCom(locations, 2);
+        Battleship dot = new Battleship(locations, 2);
 
         dot.checkHit("20");
         if (dot.checkHit("20").equals("miss"))

@@ -1,12 +1,12 @@
 import java.util.Scanner;
 
 
-class DotComGame
+class BattleshipsGame
 {
     public static void main(String [] args)
     {
         short numOfGuesses = 0;
-        DotCom dotCom = new DotCom();
+        Battleship dotCom = new Battleship();
         Scanner scan = new Scanner(System.in);
 
         while (true) {
