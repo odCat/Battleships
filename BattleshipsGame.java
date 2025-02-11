@@ -6,12 +6,12 @@ class BattleshipsGame
     public static void main(String [] args)
     {
         short numOfGuesses = 0;
-        Battleship dotCom = new Battleship();
+        Battleship battleship = new Battleship();
         Scanner scan = new Scanner(System.in);
 
         while (true) {
             String guess = getUserInput(scan, "Take a guess:");
-            String result = dotCom.checkHit(guess);
+            String result = battleship.checkHit(guess);
             ++numOfGuesses;
             if (result.equals("kill")) {
                 System.out.println("Kill");

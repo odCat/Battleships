@@ -13,27 +13,27 @@ class Test {
     {
         String result = null;
         ArrayList<Cell> locations = new ArrayList<>();
-        locations.add(new Cell(2, 0));
-        locations.add(new Cell(3, 0));
-        locations.add(new Cell(4, 0));
+        locations.add(new Cell(2, 1));
+        locations.add(new Cell(3, 1));
+        locations.add(new Cell(4, 1));
         Battleship dot = new Battleship(locations, 1);
 
-        if (dot.checkHit("00").equals("miss"))
+        if (dot.checkHit("11").equals("miss"))
             result = "pass";
         else
             result = "fail";
 
         System.out.println(result);
 
-        if (dot.checkHit("20").equals("hit"))
+        if (dot.checkHit("21").equals("hit"))
             result = "pass";
         else
             result = "fail";
 
         System.out.println(result);
 
-        dot.checkHit("30");
-        if (dot.checkHit("40").equals("kill"))
+        dot.checkHit("31");
+        if (dot.checkHit("41").equals("kill"))
             result = "pass";
         else
             result = "fail";
@@ -46,13 +46,13 @@ class Test {
         String result = null;
         ArrayList<Cell> locations = new ArrayList<>();
 
-        locations.add(new Cell(2, 0));
-        locations.add(new Cell(3, 0));
-        locations.add(new Cell(4, 0));
+        locations.add(new Cell(2, 1));
+        locations.add(new Cell(3, 1));
+        locations.add(new Cell(4, 1));
         Battleship dot = new Battleship(locations, 2);
 
-        dot.checkHit("20");
-        if (dot.checkHit("20").equals("miss"))
+        dot.checkHit("21");
+        if (dot.checkHit("21").equals("miss"))
             result = "pass";
         else
             result = "fail";

@@ -7,10 +7,10 @@ public class Battleship
 
     public Battleship() {
         locations = new ArrayList<>(3);
-        Integer i = (int) Math.random()*5;
-        this.locations.add(new Cell(i, 0));
-        this.locations.add(new Cell(i+1, 0));
-        this.locations.add(new Cell(i+2, 0));
+        Integer i = (int) Math.random()*5 + 1;
+        this.locations.add(new Cell(i, 1));
+        this.locations.add(new Cell(i+1, 1));
+        this.locations.add(new Cell(i+2, 1));
     }
 
     public Battleship(ArrayList<Cell> locations, int temp) {
