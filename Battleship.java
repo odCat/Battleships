@@ -4,17 +4,30 @@ import java.util.ArrayList;
 public class Battleship
 {
     private ArrayList<Cell> locations;
+    private final String name;
+
+    private final static String[] names = {
+            "Barbarossa", "Bismarck", "Brandenburg", "Hessen",
+            "Hannover", "Markgraf", "Rheinland"
+        };
 
     public Battleship() {
         locations = new ArrayList<>(3);
-        Integer i = (int) (Math.random()*5) + 1;
+        Integer i = (int) (Math.random()*7) + 1;
         this.locations.add(new Cell(i, 1));
         this.locations.add(new Cell(i+1, 1));
         this.locations.add(new Cell(i+2, 1));
+        this.name = this.chooseName();
     }
 
     public Battleship(ArrayList<Cell> locations, int temp) {
         this.locations = new ArrayList<>(locations);
+        this.name = this.chooseName();
+    }
+
+    private String chooseName() {
+        Integer i = (int) (Math.random() * Battleship.names.length) + 1;
+        return Battleship.names[i];
     }
 
     public String checkHit(String guess)
@@ -36,6 +49,10 @@ public class Battleship
         }
 
         return result;
+    }
+
+    public String name() {
+        return this.name;
     }
 
     @Override

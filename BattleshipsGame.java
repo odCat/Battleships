@@ -15,13 +15,14 @@ class BattleshipsGame
             ++numOfGuesses;
             if (result.equals("kill")) {
                 System.out.println("Kill");
+                System.out.println("You sank the " + battleship.name());
                 break;
             } else {
                 System.out.println(result);
             }
         }
 
-        System.out.println("You took " + numOfGuesses + " guesses");
+        System.out.println("\nYou took " + numOfGuesses + " guesses");
 
         scan.close();
     }
