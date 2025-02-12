@@ -19,6 +19,9 @@ public class Battleship
 
     public String checkHit(String guess)
     {
+        if (!Cell.isValidCell(guess))
+            return "Invalid field coordinates. Try again.";
+
         Integer column = Integer.parseInt(guess.substring(0,1));
         Integer row = Integer.parseInt(guess.substring(1,2));
         Cell userGuess = new Cell(column, row);

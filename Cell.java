@@ -8,6 +8,16 @@ public class Cell
         this.row = row;
     }
 
+    public static boolean isValidCell(String guess) {
+        if (guess.length() != 2)
+            return false;
+        if (guess.charAt(0) < '1' || guess.charAt(0) > '7')
+            return false;
+        if (guess.charAt(1) < '1' || guess.charAt(1) > '7')
+            return false;
+        return true;
+    }
+
     @Override
     public String toString() {
         return "(" + this.column + ", " + this.row + ")";
