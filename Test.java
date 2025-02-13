@@ -12,10 +12,10 @@ class Test {
     public static void TestHittingMissingAndKilling()
     {
         String result = null;
-        ArrayList<Cell> locations = new ArrayList<>();
-        locations.add(new Cell(2, 1));
-        locations.add(new Cell(3, 1));
-        locations.add(new Cell(4, 1));
+        ArrayList<Field> locations = new ArrayList<>();
+        locations.add(new Field(2, 1));
+        locations.add(new Field(3, 1));
+        locations.add(new Field(4, 1));
         Battleship battleship = new Battleship(locations, 1);
 
         if (battleship.checkHit("11").equals("miss"))
@@ -44,11 +44,11 @@ class Test {
     public static void TestHittingTheSameSpot()
     {
         String result = null;
-        ArrayList<Cell> locations = new ArrayList<>();
+        ArrayList<Field> locations = new ArrayList<>();
 
-        locations.add(new Cell(2, 1));
-        locations.add(new Cell(3, 1));
-        locations.add(new Cell(4, 1));
+        locations.add(new Field(2, 1));
+        locations.add(new Field(3, 1));
+        locations.add(new Field(4, 1));
         Battleship battleship = new Battleship(locations, 2);
 
         battleship.checkHit("21");
