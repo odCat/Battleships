@@ -26,7 +26,7 @@ public class Battleship
     }
 
     private String chooseName() {
-        Integer i = (int) (Math.random() * Battleship.names.length) + 1;
+        Integer i = (int) (Math.random() * Battleship.names.length);
         return Battleship.names[i];
     }
 
