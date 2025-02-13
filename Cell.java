@@ -25,17 +25,16 @@ public class Cell
 
     @Override
     public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+
         if (obj == null)
             return false;
 
         if (!(obj instanceof Cell))
             return false;
 
-        if (this == obj)
-            return true;
-
         final Cell other = (Cell) obj;
-
         return this.column == other.column && this.row == other.row;
     }
 }
