@@ -13,7 +13,7 @@ public class Battleship
 
     public Battleship() {
         locations = new ArrayList<>(3);
-        Integer i = (int) (Math.random()*7) + 1;
+        Integer i = (int) (Math.random()*5) + 1;
         this.locations.add(new Field(i, 1));
         this.locations.add(new Field(i+1, 1));
         this.locations.add(new Field(i+2, 1));
