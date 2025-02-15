@@ -1,1 +1,12 @@
+*~
+.*.swm
+.*.swn
+.*.swo
+.*.swp
 *.class
+
+# VS Code
+.vscode/
+
+# IntelliJ IDEA
+.idea
