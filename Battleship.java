@@ -14,10 +14,21 @@ public class Battleship
     public Battleship() {
         locations = new ArrayList<>(3);
         Integer i = (int) (Math.random()*5) + 1;
-        this.locations.add(new Field(i, 1));
-        this.locations.add(new Field(i+1, 1));
-        this.locations.add(new Field(i+2, 1));
-        this.name = this.chooseName();
+        Integer j = (int) (Math.random()*5) + 1;
+        Boolean isOrientedNS = (int) (Math.random()*2) == 0 ? false : true;
+        if (isOrientedNS) {
+            this.locations.add(new Field(i, j));
+            this.locations.add(new Field(i, j+1));
+            this.locations.add(new Field(i, j+2));
+            this.name = this.chooseName();
+        } else {
+            this.locations.add(new Field(i, j));
+            this.locations.add(new Field(i+1, j));
+            this.locations.add(new Field(i+2, j));
+            this.name = this.chooseName();
+        }
+        // System.out.println(isOrientedNS);
+        // System.out.println(this.locations);
     }
 
     public Battleship(ArrayList<Field> locations, int temp) {
