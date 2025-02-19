@@ -11,7 +11,9 @@ public class Field
     public static boolean isValidField(String guess) {
         if (guess.length() != 2)
             return false;
-        if (guess.charAt(0) < '1' || guess.charAt(0) > '7')
+        if (!(guess.charAt(0) > '0' && guess.charAt(0) < '8'
+                || guess.charAt(0) >= 'a' && guess.charAt(0) <= 'h'
+                || guess.charAt(0) >= 'A' && guess.charAt(0) <= 'H'))
             return false;
         if (guess.charAt(1) < '1' || guess.charAt(1) > '7')
             return false;
