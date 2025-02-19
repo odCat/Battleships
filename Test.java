@@ -5,8 +5,46 @@ class Test {
 
     public static void main (String[] args)
     {
+        TestIsValidFied();
         TestHittingMissingAndKilling();
         TestHittingTheSameSpot();
+    }
+
+    public static void TestIsValidFied()
+    {
+        String result = null;
+
+        if (!Field.isValidField("ABC"))
+            result = "pass";
+        System.out.println(result);
+
+        if (Field.isValidField("11"))
+            result = "pass";
+        System.out.println(result);
+
+        if (Field.isValidField("77"))
+            result = "pass";
+        System.out.println(result);
+
+        if (!Field.isValidField("88"))
+            result = "pass";
+        System.out.println(result);
+
+        if (!Field.isValidField("00"))
+            result = "pass";
+        System.out.println(result);
+
+        if (Field.isValidField("A1"))
+            result = "pass";
+        System.out.println(result);
+
+        if (Field.isValidField("b4"))
+            result = "pass";
+        System.out.println(result);
+
+        if (!Field.isValidField("Z0"))
+            result = "pass";
+        System.out.println(result);
     }
 
     public static void TestHittingMissingAndKilling()
