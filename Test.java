@@ -16,34 +16,56 @@ class Test {
 
         if (!Field.isValidField("ABC"))
             result = "pass";
+        else
+            result = "fail";
         System.out.println(result);
 
         if (Field.isValidField("11"))
             result = "pass";
+        else
+            result = "fail";
         System.out.println(result);
 
         if (Field.isValidField("77"))
             result = "pass";
+        else
+            result = "fail";
         System.out.println(result);
 
         if (!Field.isValidField("88"))
             result = "pass";
+        else
+            result = "fail";
         System.out.println(result);
 
         if (!Field.isValidField("00"))
             result = "pass";
+        else
+            result = "fail";
         System.out.println(result);
 
         if (Field.isValidField("A1"))
             result = "pass";
+        else
+            result = "fail";
+        System.out.println(result);
+
+        if (!Field.isValidField("AA"))
+            result = "pass";
+        else
+            result = "fail";
         System.out.println(result);
 
         if (Field.isValidField("b4"))
             result = "pass";
+        else
+            result = "fail";
         System.out.println(result);
 
         if (!Field.isValidField("Z0"))
             result = "pass";
+        else
+            result = "fail";
         System.out.println(result);
     }
 
