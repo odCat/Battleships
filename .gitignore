@@ -10,3 +10,6 @@
 
 # IntelliJ IDEA
 .idea
+
+# Vim session file
+Session.vim
