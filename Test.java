@@ -5,12 +5,12 @@ class Test {
 
     public static void main (String[] args)
     {
-        TestIsValidFied();
+        TestIsValidField();
         TestHittingMissingAndKilling();
         TestHittingTheSameSpot();
     }
 
-    public static void TestIsValidFied()
+    public static void TestIsValidField()
     {
         String result = null;
 
