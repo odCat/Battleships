@@ -12,65 +12,34 @@ class Test {
 
     public static void TestIsValidField()
     {
+        String testName = "IsValidField";
         String result = null;
+        String[] goodTestValues = { "11", "77", "A1", "b4" };
+        String[] badTestValues = { "ABC", "88", "00", "AA", "Z1" };
 
-        if (!Field.isValidField("ABC"))
-            result = "pass";
-        else
-            result = "fail";
-        System.out.println(result);
 
-        if (Field.isValidField("11"))
-            result = "pass";
-        else
-            result = "fail";
-        System.out.println(result);
+        for (String value : goodTestValues) {
+            if (Field.isValidField(value))
+                result = "PASS";
+            else
+                result = "FAIL";
+            System.out.println(testName + " (" + value + ")"
+                    + " : " + result);
+        }
 
-        if (Field.isValidField("77"))
-            result = "pass";
-        else
-            result = "fail";
-        System.out.println(result);
-
-        if (!Field.isValidField("88"))
-            result = "pass";
-        else
-            result = "fail";
-        System.out.println(result);
-
-        if (!Field.isValidField("00"))
-            result = "pass";
-        else
-            result = "fail";
-        System.out.println(result);
-
-        if (Field.isValidField("A1"))
-            result = "pass";
-        else
-            result = "fail";
-        System.out.println(result);
-
-        if (!Field.isValidField("AA"))
-            result = "pass";
-        else
-            result = "fail";
-        System.out.println(result);
-
-        if (Field.isValidField("b4"))
-            result = "pass";
-        else
-            result = "fail";
-        System.out.println(result);
-
-        if (!Field.isValidField("Z0"))
-            result = "pass";
-        else
-            result = "fail";
-        System.out.println(result);
+        for (String value : badTestValues) {
+            if (!Field.isValidField(value))
+                result = "PASS";
+            else
+                result = "FAIL";
+            System.out.println(testName + " (" + value + ")"
+                    + " : " + result);
+        }
     }
 
     public static void TestHittingMissingAndKilling()
     {
+        String testName = "HittingMissingAndKilling";
         String result = null;
         ArrayList<Field> locations = new ArrayList<>();
         locations.add(new Field(2, 1));
@@ -79,30 +48,31 @@ class Test {
         Battleship battleship = new Battleship(locations, 1);
 
         if (battleship.checkHit("11").equals("miss"))
-            result = "pass";
+            result = "PASS";
         else
-            result = "fail";
+            result = "FAIL";
 
-        System.out.println(result);
+        System.out.println(testName + " : " + result);
 
         if (battleship.checkHit("21").equals("hit"))
-            result = "pass";
+            result = "PASS";
         else
-            result = "fail";
+            result = "FAIL";
 
-        System.out.println(result);
+        System.out.println(testName + " : " + result);
 
         battleship.checkHit("31");
         if (battleship.checkHit("41").equals("kill"))
-            result = "pass";
+            result = "PASS";
         else
-            result = "fail";
+            result = "FAIL";
 
-        System.out.println(result);
+        System.out.println(testName + " : " + result);
     }
 
     public static void TestHittingTheSameSpot()
     {
+        String testName = "HittingTheSameSpot";
         String result = null;
         ArrayList<Field> locations = new ArrayList<>();
 
@@ -113,11 +83,11 @@ class Test {
 
         battleship.checkHit("21");
         if (battleship.checkHit("21").equals("miss"))
-            result = "pass";
+            result = "PASS";
         else
-            result = "fail";
+            result = "FAIL";
 
-        System.out.println(result);
+        System.out.println(testName + " : " + result);
     }
 }
 
