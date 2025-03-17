@@ -9,6 +9,7 @@ class Test
         TestHittingMissingAndKilling();
         TestHittingTheSameSpot();
         testInitFleetReturnsShips();
+        testBattleshipsDontCollide();
     }
 
     public static void TestIsValidField()
@@ -104,6 +105,58 @@ class Test
 
         if (fleet.get(0) != null && fleet.get(1) != null
                 && fleet.get(2) != null)
+            result = "PASS";
+        else
+            result = "FAIL";
+
+        System.out.println(testName + " : " + result);
+    }
+
+    public static void testBattleshipsDontCollide()
+    {
+        String testName = "testBattleshipsDontCollide";
+        String result = null;
+
+        ArrayList<Field> locations1 = new ArrayList<>();
+        locations1.add(new Field(2, 1));
+        locations1.add(new Field(3, 1));
+        locations1.add(new Field(4, 1));
+        Battleship battleship1 = new Battleship(locations1);
+
+        ArrayList<Field> locations2 = new ArrayList<>();
+        locations2.add(new Field(4, 1));
+        locations2.add(new Field(4, 2));
+        locations2.add(new Field(4, 3));
+        Battleship battleship2 = new Battleship(locations2);
+
+        ArrayList<Field> locations3 = new ArrayList<>();
+        locations3.add(new Field(3, 6));
+        locations3.add(new Field(4, 6));
+        locations3.add(new Field(5, 6));
+        Battleship battleship3 = new Battleship(locations3);
+
+        if (battleship1.collides(battleship1))
+            result = "PASS";
+        else
+            result = "FAIL";
+
+        System.out.println(testName + " : " + result);
+
+        if (!battleship1.collides(null))
+            result = "PASS";
+        else
+            result = "FAIL";
+
+        System.out.println(testName + " : " + result);
+
+        if (battleship1.collides(battleship2))
+            result = "PASS";
+        else
+            result = "FAIL";
+
+        System.out.println(testName + " : " + result);
+
+        if (!battleship1.collides(battleship3))
             result = "PASS";
         else
             result = "FAIL";
