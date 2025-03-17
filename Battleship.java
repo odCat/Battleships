@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class Battleship
 {
-    private ArrayList<Field> locations;
+    private ArrayList<Field> location;
     private final String name;
 
     private final static String[] names = {
@@ -12,27 +12,27 @@ public class Battleship
         };
 
     public Battleship() {
-        locations = new ArrayList<>(3);
+
+        this.name = this.chooseName();
+        this.location = new ArrayList<>(3);
         Integer i = (int) (Math.random()*5) + 1;
         Integer j = (int) (Math.random()*5) + 1;
         Boolean isOrientedNS = (int) (Math.random()*2) == 0 ? false : true;
         if (isOrientedNS) {
-            this.locations.add(new Field(i, j));
-            this.locations.add(new Field(i, j+1));
-            this.locations.add(new Field(i, j+2));
-            this.name = this.chooseName();
+            this.location.add(new Field(i, j));
+            this.location.add(new Field(i, j+1));
+            this.location.add(new Field(i, j+2));
         } else {
-            this.locations.add(new Field(i, j));
-            this.locations.add(new Field(i+1, j));
-            this.locations.add(new Field(i+2, j));
-            this.name = this.chooseName();
+            this.location.add(new Field(i, j));
+            this.location.add(new Field(i+1, j));
+            this.location.add(new Field(i+2, j));
         }
         // System.out.println(isOrientedNS);
-        // System.out.println(this.locations);
+        // System.out.println(this.location);
     }
 
-    public Battleship(ArrayList<Field> locations, int temp) {
-        this.locations = new ArrayList<>(locations);
+    public Battleship(ArrayList<Field> location) {
+        this.location = new ArrayList<>(location);
         this.name = this.chooseName();
     }
 
@@ -51,9 +51,9 @@ public class Battleship
         Field userGuess = new Field(column, row);
         String result = "miss";
 
-        if (this.locations.contains(userGuess)) {
-            this.locations.remove(userGuess);
-            if (this.locations.size() == 0)
+        if (this.location.contains(userGuess)) {
+            this.location.remove(userGuess);
+            if (this.location.size() == 0)
                 result = "kill";
             else
                 result = "hit";
@@ -68,7 +68,7 @@ public class Battleship
 
     @Override
     public String toString() {
-        return this.locations.toString();
+        return this.location.toString();
     }
 }
 

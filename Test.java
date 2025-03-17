@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
 
-class Test {
-
+class Test
+{
     public static void main (String[] args)
     {
         TestIsValidField();
@@ -45,7 +45,7 @@ class Test {
         locations.add(new Field(2, 1));
         locations.add(new Field(3, 1));
         locations.add(new Field(4, 1));
-        Battleship battleship = new Battleship(locations, 1);
+        Battleship battleship = new Battleship(locations);
 
         if (battleship.checkHit("11").equals("miss"))
             result = "PASS";
@@ -79,7 +79,7 @@ class Test {
         locations.add(new Field(2, 1));
         locations.add(new Field(3, 1));
         locations.add(new Field(4, 1));
-        Battleship battleship = new Battleship(locations, 2);
+        Battleship battleship = new Battleship(locations);
 
         battleship.checkHit("21");
         if (battleship.checkHit("21").equals("miss"))
