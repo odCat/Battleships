@@ -8,6 +8,7 @@ class Test
         TestIsValidField();
         TestHittingMissingAndKilling();
         TestHittingTheSameSpot();
+        testInitFleetReturnsShips();
     }
 
     public static void TestIsValidField()
@@ -83,6 +84,26 @@ class Test
 
         battleship.checkHit("21");
         if (battleship.checkHit("21").equals("miss"))
+            result = "PASS";
+        else
+            result = "FAIL";
+
+        System.out.println(testName + " : " + result);
+    }
+
+    public static void testInitFleetReturnsShips()
+    {
+        String testName = "InitFleetReturnsShips";
+        String result = null;
+        ArrayList<Battleship> fleet = new BattleshipsGame().initFleet();
+
+        int defaultFleetSize = BattleshipsGame.DEFAULT_FLEET_SIZE;
+        assert fleet.size() == defaultFleetSize :
+            "Fleet size is not " + defaultFleetSize +
+            " (" + fleet.size() + ")";
+
+        if (fleet.get(0) != null && fleet.get(1) != null
+                && fleet.get(2) != null)
             result = "PASS";
         else
             result = "FAIL";
