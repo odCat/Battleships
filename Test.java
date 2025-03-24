@@ -5,15 +5,15 @@ class Test
 {
     public static void main (String[] args)
     {
-        TestIsValidField();
-        TestHittingMissingAndKilling();
-        TestHittingTheSameSpot();
+        testIsValidField();
+        testHittingMissingAndKilling();
+        testHittingTheSameSpot();
         testInitFleetReturnsShips();
         testBattleshipsDontCollide();
         testInitFleetReturnsDifferentShips();
     }
 
-    public static void TestIsValidField()
+    public static void testIsValidField()
     {
         String testName = "IsValidField";
         String result = null;
@@ -40,7 +40,7 @@ class Test
         }
     }
 
-    public static void TestHittingMissingAndKilling()
+    public static void testHittingMissingAndKilling()
     {
         String testName = "HittingMissingAndKilling";
         String result = null;
@@ -73,7 +73,7 @@ class Test
         System.out.println(testName + " : " + result);
     }
 
-    public static void TestHittingTheSameSpot()
+    public static void testHittingTheSameSpot()
     {
         String testName = "HittingTheSameSpot";
         String result = null;
