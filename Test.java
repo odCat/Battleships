@@ -10,6 +10,7 @@ class Test
         TestHittingTheSameSpot();
         testInitFleetReturnsShips();
         testBattleshipsDontCollide();
+        testInitFleetReturnsDifferentShips();
     }
 
     public static void TestIsValidField()
@@ -160,6 +161,30 @@ class Test
             result = "PASS";
         else
             result = "FAIL";
+
+        System.out.println(testName + " : " + result);
+    }
+
+    public static void testInitFleetReturnsDifferentShips()
+    {
+        String testName = "InitFleetReturnsDifferentShips";
+        String result = "PASS";
+
+        ArrayList<Battleship> fleet;
+
+        search:
+        for (int k = 0; k < 100; ++k)
+        {
+            fleet = new BattleshipsGame().initFleet();
+            for (int i = 0; i < fleet.size()-1; ++i) {
+                for (int j = i+1; j < fleet.size(); ++j) {
+                    if (fleet.get(i).collides(fleet.get(j))) {
+                        result = "FAIL";
+                        break search;
+                    }
+                }
+            }
+        }
 
         System.out.println(testName + " : " + result);
     }
