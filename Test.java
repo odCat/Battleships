@@ -12,6 +12,7 @@ class Test
         testInitFleetReturnsShips();
         testBattleshipsDontCollide();
         testInitFleetReturnsDifferentShips();
+        testInitFleetWithZeroOrNegativeNoShips();
     }
 
     public static void testIsValidField()
@@ -200,6 +201,35 @@ class Test
             }
         }
 
+        System.out.println(testName + " : " + result);
+    }
+
+    public static void testInitFleetWithZeroOrNegativeNoShips()
+    {
+        String testName = "testInitFleetWithZeroOrNegativeNoShips";
+        String result;
+
+        ArrayList<Battleship> fleet;
+
+        fleet = Fleet.initFleet(0);
+        if (fleet.size() == 1)
+            result = "PASS";
+        else
+            result = "FAIL";
+        System.out.println(testName + " : " + result);
+
+        fleet = Fleet.initFleet(-1);
+        if (fleet.size() == 1)
+            result = "PASS";
+        else
+            result = "FAIL";
+        System.out.println(testName + " : " + result);
+
+        fleet = Fleet.initFleet(100);
+        if (fleet.size() == 5)
+            result = "PASS";
+        else
+            result = "FAIL";
         System.out.println(testName + " : " + result);
     }
 }
