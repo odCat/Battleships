@@ -1,12 +1,12 @@
 import java.util.ArrayList;
 
 
-class Fleet {
+class Fleet
+{
     static final int DEFAULT_FLEET_SIZE = 3;
     static final int MIN_FLEET_SIZE = 1;
     static final int MAX_FLEET_SIZE = 5;
-    final ArrayList<Battleship> fleet = initFleet();
-
+    private final ArrayList<Battleship> fleet = initFleet();
 
     public static ArrayList<Battleship> initFleet()
     {
@@ -44,5 +44,23 @@ class Fleet {
         }
 
         return result;
+    }
+
+    public String checkHit(String guess)
+    {
+        for (Battleship bs : this.fleet) {
+            String result = bs.checkHit(guess);
+            if (!result.equals("miss")) {
+                if (result.equals("kill"))
+                    this.fleet.remove(bs);
+                return result;
+            }
+        }
+
+        return "miss";
+    }
+
+    public int size() {
+        return this.fleet.size();
     }
 }
