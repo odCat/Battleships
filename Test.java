@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+// import java.lang.reflect.Field;
 
 
 class Test
@@ -97,9 +98,9 @@ class Test
     {
         String testName = "InitFleetReturnsShips";
         String result = null;
-        ArrayList<Battleship> fleet = new BattleshipsGame().initFleet();
+        ArrayList<Battleship> fleet = Fleet.initFleet();
 
-        int defaultFleetSize = BattleshipsGame.DEFAULT_FLEET_SIZE;
+        int defaultFleetSize = Fleet.DEFAULT_FLEET_SIZE;
         assert fleet.size() == defaultFleetSize :
             "Fleet size is not " + defaultFleetSize +
             " (" + fleet.size() + ")";
@@ -170,12 +171,25 @@ class Test
         String testName = "InitFleetReturnsDifferentShips";
         String result = "PASS";
 
+        // Class<Fleet> fleetClass = Fleet.class;
+        // java.lang.reflect.Field fieldFleet;
+        // java.lang.reflect.Method methodFleetInit;
+        //
+        // try {
+        //     fieldFleet = fleetClass.getDeclaredField("fleet");
+        //     fieldFleet.setAccessible(true);
+        //     methodFleetInit = fleetClass.getDeclaredMethod("initFleet");
+        //     methodFleetInit.setAccessible(true);
+        // } catch (NoSuchFieldException | NoSuchMethodException e) {
+        //     e.printStackTrace();
+        // }
+
         ArrayList<Battleship> fleet;
 
         search:
         for (int k = 0; k < 100; ++k)
         {
-            fleet = new BattleshipsGame().initFleet();
+            fleet = Fleet.initFleet();
             for (int i = 0; i < fleet.size()-1; ++i) {
                 for (int j = i+1; j < fleet.size(); ++j) {
                     if (fleet.get(i).collides(fleet.get(j))) {
