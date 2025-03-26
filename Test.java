@@ -12,6 +12,7 @@ class Test
         testBattleshipsDontCollide();
         testInitFleetReturnsDifferentShips();
         testInitFleetWithZeroOrNegativeNoShips();
+        testNoShipsHaveBeenDestroyedBeforeTheStart();
     }
 
     public static void testIsValidField()
@@ -226,6 +227,20 @@ class Test
 
         fleet = Fleet.initFleet(100);
         if (fleet.size() == 5)
+            result = "PASS";
+        else
+            result = "FAIL";
+        System.out.println(testName + " : " + result);
+    }
+
+    public static void testNoShipsHaveBeenDestroyedBeforeTheStart()
+    {
+        String testName = "NoShipsHaveBeenDestroyedBeforeTheStart";
+        String result;
+
+        Fleet fleet = new Fleet();
+
+        if (fleet.getLastKill() == "No battleships have been sunk yet.")
             result = "PASS";
         else
             result = "FAIL";

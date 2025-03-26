@@ -68,9 +68,9 @@ class Fleet
         return this.fleet.size();
     }
 
-    public String getlastKill() {
+    public String getLastKill() {
         if (this.lastKill.isEmpty())
-            return "No battleships has been sunk yet.";
+            return "No battleships have been sunk yet.";
         else
             return this.lastKill;
     }
