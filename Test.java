@@ -205,7 +205,7 @@ class Test
 
     public static void testInitFleetWithZeroOrNegativeNoShips()
     {
-        String testName = "testInitFleetWithZeroOrNegativeNoShips";
+        String testName = "InitFleetWithZeroOrNegativeNoShips";
         String result;
 
         ArrayList<Battleship> fleet;
