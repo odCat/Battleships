@@ -15,7 +15,7 @@ class BattleshipsGame
             ++numOfGuesses;
             if (result.equals("kill")) {
                 System.out.println("Kill");
-                System.out.println("You sank a battleship");
+                System.out.println("You sank a the " + fleet.getlastKill());
             } else {
                 System.out.println(result);
             }

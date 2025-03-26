@@ -7,6 +7,7 @@ class Fleet
     static final int MIN_FLEET_SIZE = 1;
     static final int MAX_FLEET_SIZE = 5;
     private final ArrayList<Battleship> fleet = initFleet();
+    private String lastKill = "";
 
     public static ArrayList<Battleship> initFleet()
     {
@@ -52,7 +53,10 @@ class Fleet
             String result = bs.checkHit(guess);
             if (!result.equals("miss")) {
                 if (result.equals("kill"))
+                {
                     this.fleet.remove(bs);
+                    lastKill = bs.name();
+                }
                 return result;
             }
         }
@@ -62,5 +66,12 @@ class Fleet
 
     public int size() {
         return this.fleet.size();
+    }
+
+    public String getlastKill() {
+        if (this.lastKill.isEmpty())
+            return "No battleships has been sunk yet.";
+        else
+            return this.lastKill;
     }
 }
