@@ -1,6 +1,6 @@
 # Battleships
 
-This is a battleships game written in Java. 
+This is a CLI battleships game written in Java.
 
 # How to play
 
@@ -15,3 +15,11 @@ To sink a battleship
 hit it three times in each square it occupies on the grid.
 
 Good luck!
+
+# What was learned and practiced
+
+* How to use the Math.random() method to generate random numbers
+* How to override the equals method (of the Field class) to make the
+contains work in the context of the project
+* How to use delegation to check hits (BattleshpsGame -> Fleet -> Battleship)
+* How to use TDD
