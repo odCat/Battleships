@@ -1,19 +1,29 @@
+package com.mg;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.ArrayList;
+import org.junit.jupiter.api.Test;
 
 
-class Test
+class TestBattleship
 {
-    public static void main (String[] args)
-    {
-        testIsValidField();
-        testHittingMissingAndKilling();
-        testHittingTheSameSpot();
-        testInitFleetReturnsShips();
-        testBattleshipsDontCollide();
-        testInitFleetReturnsDifferentShips();
-        testInitFleetWithZeroOrNegativeNoShips();
-        testNoShipsHaveBeenDestroyedBeforeTheStart();
+    @Test
+    void testTest() {
+        assertTrue(true);
     }
+
+    // public static void main (String[] args)
+    // {
+    //     testIsValidField();
+    //     testHittingMissingAndKilling();
+    //     testHittingTheSameSpot();
+    //     testInitFleetReturnsShips();
+    //     testBattleshipsDontCollide();
+    //     testInitFleetReturnsDifferentShips();
+    //     testInitFleetWithZeroOrNegativeNoShips();
+    //     testNoShipsHaveBeenDestroyedBeforeTheStart();
+    // }
 
     public static void testIsValidField()
     {

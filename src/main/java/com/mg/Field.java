@@ -1,3 +1,6 @@
+package com.mg;
+
+
 public class Field
 {
     Integer column;

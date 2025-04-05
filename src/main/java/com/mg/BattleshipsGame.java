@@ -1,3 +1,5 @@
+package com.mg;
+
 import java.util.Scanner;
 
 
