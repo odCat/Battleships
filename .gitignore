@@ -5,6 +5,8 @@
 .*.swp
 *.class
 
+/target
+
 # VS Code
 .vscode/
 
