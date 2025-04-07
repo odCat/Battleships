@@ -4,6 +4,9 @@
 .*.swo
 .*.swp
 *.class
+.classpath
+.project
+.settings/
 
 /target
 
