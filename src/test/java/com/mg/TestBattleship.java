@@ -71,23 +71,22 @@ class TestBattleship
         assertEquals("miss", battleship.checkHit("21"));
     }
 
-
     @Test
     void testBattleshipsDontCollide()
     {
-        ArrayList<Field> locations1 = new ArrayList<>();
+        ArrayList<Field> locations1 = new ArrayList<>(3);
         locations1.add(new Field(2, 1));
         locations1.add(new Field(3, 1));
         locations1.add(new Field(4, 1));
         Battleship battleship1 = new Battleship(locations1);
 
-        ArrayList<Field> locations2 = new ArrayList<>();
+        ArrayList<Field> locations2 = new ArrayList<>(3);
         locations2.add(new Field(4, 1));
         locations2.add(new Field(4, 2));
         locations2.add(new Field(4, 3));
         Battleship battleship2 = new Battleship(locations2);
 
-        ArrayList<Field> locations3 = new ArrayList<>();
+        ArrayList<Field> locations3 = new ArrayList<>(3);
         locations3.add(new Field(3, 6));
         locations3.add(new Field(4, 6));
         locations3.add(new Field(5, 6));
