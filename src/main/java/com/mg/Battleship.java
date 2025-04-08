@@ -1,6 +1,8 @@
 package com.mg;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class Battleship
@@ -48,9 +50,7 @@ public class Battleship
         if (!Field.isValidField(guess))
             return "Invalid field coordinates. Try again.";
 
-        Integer column = Integer.parseInt(guess.substring(0,1));
-        Integer row = Integer.parseInt(guess.substring(1,2));
-        Field userGuess = new Field(column, row);
+        Field userGuess = this.processUserGuess(guess);
         String result = "miss";
 
         if (this.location.contains(userGuess)) {
@@ -66,6 +66,36 @@ public class Battleship
 
     public String name() {
         return this.name;
+    private Field processUserGuess(String guess) {
+        int column;
+        int row;
+
+        column = processColumn(guess.charAt(0));
+        row = Integer.parseInt(guess.substring(1,2));
+        Field result = new Field(column, row);
+
+        return result;
+    }
+
+    private int processColumn(Character column) {
+        int result;
+
+        if (Character.isLetter(column)) {
+            Map<Character, Integer> charToInt = new HashMap<>();
+            charToInt.put('A', 1);
+            charToInt.put('B', 2);
+            charToInt.put('C', 3);
+            charToInt.put('D', 4);
+            charToInt.put('E', 5);
+            charToInt.put('F', 6);
+            charToInt.put('G', 7);
+
+            result = charToInt.get(Character.toUpperCase(column));
+        } else {
+            result = Integer.parseInt(Character.toString(column));
+        }
+
+        return result;
     }
 
     boolean collides(Battleship other) {

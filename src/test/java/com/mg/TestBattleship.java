@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Test;
 
 class TestBattleship
 {
-
     @Test
     void testHittingMissingAndKilling()
     {
@@ -22,9 +21,40 @@ class TestBattleship
 
         assertEquals("miss", battleship.checkHit("11"));
         assertEquals("hit", battleship.checkHit("21"));
-
-        battleship.checkHit("31");
+        assertEquals("hit", battleship.checkHit("31"));
         assertEquals("kill", battleship.checkHit("41"));
+    }
+
+    @Test
+    void testHittingUsingLetterCoordonates()
+    {
+        ArrayList<Field> locations = new ArrayList<>();
+        locations.add(new Field(2, 1));
+        locations.add(new Field(3, 1));
+        locations.add(new Field(4, 1));
+        Battleship battleship = new Battleship(locations);
+
+        assertEquals("miss", battleship.checkHit("a1"));
+        assertEquals("hit", battleship.checkHit("b1"));
+        assertEquals("hit", battleship.checkHit("c1"));
+        assertEquals("kill", battleship.checkHit("D1"));
+    }
+
+    @Test
+    void testCheckHitswithInvalidCoordinates()
+    {
+        ArrayList<Field> locations = new ArrayList<>();
+        locations.add(new Field(2, 1));
+        locations.add(new Field(3, 1));
+        locations.add(new Field(4, 1));
+        Battleship battleship = new Battleship(locations);
+
+        String expected = "Invalid field coordinates. Try again.";
+
+        assertEquals(expected, battleship.checkHit("z1"));
+        assertEquals(expected, battleship.checkHit("-11"));
+        assertEquals(expected, battleship.checkHit("01"));
+        assertEquals(expected, battleship.checkHit("1a"));
     }
 
     @Test
