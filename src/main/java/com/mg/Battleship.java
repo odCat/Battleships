@@ -95,13 +95,11 @@ public class Battleship
     }
 
     boolean collides(Battleship other) {
-        if (other == null)
-            return false;
 
         if (this == other)
             return true;
 
-        if (!(other instanceof Battleship))
+        if (other == null || !(other instanceof Battleship))
             return false;
 
         for (Field thisField : this.location)
@@ -120,6 +118,5 @@ public class Battleship
     public String name() {
         return this.name;
     }
-
 }
 
