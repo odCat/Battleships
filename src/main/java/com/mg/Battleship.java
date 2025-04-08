@@ -31,8 +31,6 @@ public class Battleship
             this.location.add(new Field(i+1, j));
             this.location.add(new Field(i+2, j));
         }
-        // System.out.println(isOrientedNS);
-        // System.out.println(this.location);
     }
 
     public Battleship(ArrayList<Field> location) {
