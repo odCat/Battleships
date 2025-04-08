@@ -64,8 +64,6 @@ public class Battleship
         return result;
     }
 
-    public String name() {
-        return this.name;
     private Field processUserGuess(String guess) {
         int column;
         int row;
@@ -120,5 +118,10 @@ public class Battleship
     public String toString() {
         return this.location.toString();
     }
+
+    public String name() {
+        return this.name;
+    }
+
 }
 
