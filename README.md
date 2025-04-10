@@ -18,8 +18,17 @@ Good luck!
 
 # What was learned and practiced
 
+* How to incorporate **Maven** into the project and use it to compile,
+build and test it<br><br>
+A problem I encountered with Maven was that it was not building the<br>
+project correctly and it was not running my tests. After investigations<br>
+I found the problem. On Debian the default Maven package was version 3.6.3,<br>
+and this version was not working well with the configuration I set up.<br>
+To solve this issue I installed manually the latest version(3.9.9)
+* How to use **JUnit**;<br><br>After setting up Maven I could use JUnit and<br>
+run automate tests with it. So, I transferred my old custom tests to JUnit 5
+* How to use **TDD**
 * How to use the Math.random() method to generate random numbers
-* How to override the equals method (of the Field class) to make the
-contains work in the context of the project
+* How to override the equals method (of the Field class) to make the contains<br>
+work in the context of the project
 * How to use delegation to check hits (BattleshpsGame -> Fleet -> Battleship)
-* How to use TDD
