@@ -14,6 +14,15 @@ times in each square it occupies on the grid.
 
 Good luck!
 
+# Why
+
+As I was starting again with Java after a few years I picked up a very<br>
+old edition of **Head First Java**. The book was written after the Dot-com<br>
+bubble, that is probably why one of the first projects is a game that<br>
+sinks Dot-coms...<br><br>
+I took this project on, but created a classic battleship sinking game<br>
+through my own implementation and testing.
+
 # What was learned and practiced
 
 * How to incorporate **Maven** into the project and use it to compile,
