@@ -1,7 +1,9 @@
 package com.mg;
 
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -10,14 +12,18 @@ public class Battleship
     private ArrayList<Field> location;
     private final String name;
 
-    private final static String[] names = {
+    private static List<String> names = new ArrayList<>(Arrays.asList(
             "Barbarossa", "Bismarck", "Brandenburg", "Hessen",
             "Hannover", "Markgraf", "Rheinland"
-        };
+        ));
 
     public Battleship() {
+        this(Battleship.chooseName());
+    }
 
-        this.name = this.chooseName();
+    public Battleship(String name)
+    {
+        this.name = name;
         this.location = new ArrayList<>(3);
         Integer i = (int) (Math.random()*5) + 1;
         Integer j = (int) (Math.random()*5) + 1;
@@ -34,8 +40,12 @@ public class Battleship
     }
 
     public Battleship(ArrayList<Field> location) {
+        this(Battleship.chooseName(), location);
+    }
+
+    public Battleship(String name, ArrayList<Field> location) {
+        this.name = name;
         this.location = new ArrayList<>(location);
-        this.name = this.chooseName();
     }
 
     private String chooseName() {
