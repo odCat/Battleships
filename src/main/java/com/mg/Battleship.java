@@ -48,9 +48,12 @@ public class Battleship
         this.location = new ArrayList<>(location);
     }
 
-    private String chooseName() {
-        Integer i = (int) (Math.random() * Battleship.names.length);
-        return Battleship.names[i];
+    private static String chooseName() {
+        Integer i = (int) (Math.random() * Battleship.names.size());
+        String name = Battleship.names.get(i);
+        Battleship.names.remove(name);
+
+        return name;
     }
 
     public String checkHit(String guess)

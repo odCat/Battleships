@@ -8,15 +8,15 @@ class Fleet
     static final int DEFAULT_FLEET_SIZE = 3;
     static final int MIN_FLEET_SIZE = 1;
     static final int MAX_FLEET_SIZE = 5;
-    private final ArrayList<Battleship> fleet = initFleet();
+    private final ArrayList<Battleship> fleet = initFleet(false);
     private String lastKill = "";
 
-    public static ArrayList<Battleship> initFleet()
+    public static ArrayList<Battleship> initFleet(boolean isTest)
     {
-        return initFleet(DEFAULT_FLEET_SIZE);
+        return initFleet(DEFAULT_FLEET_SIZE, isTest);
     }
 
-    public static ArrayList<Battleship> initFleet(int fleetSize)
+    public static ArrayList<Battleship> initFleet(int fleetSize, boolean isTest)
     {
         if (fleetSize < MIN_FLEET_SIZE)
             fleetSize = MIN_FLEET_SIZE;
@@ -27,15 +27,16 @@ class Fleet
 
         for (int i = 0; i < fleetSize; ++i) {
             if (i == 0) {
-                Battleship newShip = new Battleship();
+                Battleship newShip = Fleet.buidBattleship(isTest);
                 result.add(newShip);
             } else {
                 while (true) {
                     boolean collides = false;
-                    Battleship newShip = new Battleship();
+                    Battleship newShip = Fleet.buidBattleship(isTest);
                     for (Battleship bs : result) {
                         if (bs.collides(newShip)) {
-                            newShip.reuseName();
+                            if (!isTest)
+                                newShip.reuseName();
                             collides = true;
                         }
                     }
@@ -48,6 +49,13 @@ class Fleet
         }
 
         return result;
+    }
+
+    private static Battleship buidBattleship(boolean isTest) {
+        if (isTest)
+            return new Battleship("Test");
+        else
+            return new Battleship();
     }
 
     public String checkHit(String guess)

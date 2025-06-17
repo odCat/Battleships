@@ -13,7 +13,7 @@ class TestFleet
     @Test
     void testInitFleetReturnsShips()
     {
-        ArrayList<Battleship> fleet = Fleet.initFleet();
+        ArrayList<Battleship> fleet = Fleet.initFleet(true);
 
         int defaultFleetSize = Fleet.DEFAULT_FLEET_SIZE;
         assertEquals(defaultFleetSize, fleet.size());
@@ -43,7 +43,7 @@ class TestFleet
 
         for (int k = 0; k < 100; ++k)
         {
-            fleet = Fleet.initFleet();
+            fleet = Fleet.initFleet(true);
             for (int i = 0; i < fleet.size()-1; ++i) {
                 for (int j = i+1; j < fleet.size(); ++j) {
                     assertFalse(fleet.get(i).collides(fleet.get(j)));
@@ -57,13 +57,13 @@ class TestFleet
     {
         ArrayList<Battleship> fleet;
 
-        fleet = Fleet.initFleet(0);
+        fleet = Fleet.initFleet(0, true);
         assertEquals(1, fleet.size());
 
-        fleet = Fleet.initFleet(-1);
+        fleet = Fleet.initFleet(-1, true);
         assertEquals(1, fleet.size());
 
-        fleet = Fleet.initFleet(100);
+        fleet = Fleet.initFleet(100, true);
         assertEquals(5, fleet.size());
     }
 
