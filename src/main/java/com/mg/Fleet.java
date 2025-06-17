@@ -35,6 +35,7 @@ class Fleet
                     Battleship newShip = new Battleship();
                     for (Battleship bs : result) {
                         if (bs.collides(newShip)) {
+                            newShip.reuseName();
                             collides = true;
                         }
                     }

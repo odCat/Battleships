@@ -120,6 +120,11 @@ public class Battleship
         return false;
     }
 
+    void reuseName() {
+        if (!Battleship.names.contains(this.name()))
+            Battleship.names.add(this.name());
+    }
+
     @Override
     public String toString() {
         return this.location.toString();
