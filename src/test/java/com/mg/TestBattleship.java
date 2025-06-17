@@ -72,7 +72,7 @@ class TestBattleship
     }
 
     @Test
-    void testBattleshipsDontCollide()
+    void testBattleshipsDoNotCollide()
     {
         ArrayList<Field> locations1 = new ArrayList<>(3);
         locations1.add(new Field(2, 1));
