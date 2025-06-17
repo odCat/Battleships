@@ -1,5 +1,6 @@
 package com.mg;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -46,5 +47,14 @@ class TestField
         Object anObject = new Object();
 
         assertFalse(aField.equals(anObject));
+    }
+
+    @Test
+    void testToString()
+    {
+        Field aField = new Field(1, 1);
+        String expected = "(1, 1)";
+
+        assertEquals(expected, aField.toString());
     }
 }
