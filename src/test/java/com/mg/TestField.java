@@ -22,12 +22,12 @@ class TestField
     }
 
     @Test
-    void testEquls()
+    void testEquals()
     {
         Field fieldOne = new Field(1, 1);
         Field fieldTwo = new Field(1, 1);
 
-        assertFalse(fieldOne.equals(fieldTwo));
+        assertTrue(fieldOne.equals(fieldTwo));
     }
 
     @Test
