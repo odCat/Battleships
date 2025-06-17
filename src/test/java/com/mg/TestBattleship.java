@@ -69,6 +69,7 @@ class TestBattleship
 
         assertEquals("hit", battleship.checkHit("21"));
         assertEquals("miss", battleship.checkHit("21"));
+        assertEquals("miss", battleship.checkHit("21"));
     }
 
     @Test
