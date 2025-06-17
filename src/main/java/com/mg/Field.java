@@ -24,11 +24,6 @@ public class Field
     }
 
     @Override
-    public String toString() {
-        return "(" + this.column + ", " + this.row + ")";
-    }
-
-    @Override
     public boolean equals(Object obj) {
         if (this == obj)
             return true;
@@ -41,5 +36,10 @@ public class Field
 
         final Field other = (Field) obj;
         return this.column == other.column && this.row == other.row;
+    }
+
+    @Override
+    public String toString() {
+        return "(" + this.column + ", " + this.row + ")";
     }
 }
