@@ -20,4 +20,31 @@ class TestField
         for (String value : badTestValues)
             assertFalse(Field.isValidField(value));
     }
+
+    @Test
+    void testEquls()
+    {
+        Field fieldOne = new Field(1, 1);
+        Field fieldTwo = new Field(1, 1);
+
+        assertFalse(fieldOne.equals(fieldTwo));
+    }
+
+    @Test
+    void testFieldNotEqualToNull()
+    {
+        Field aField = new Field(1, 1);
+        Field nullField = null;
+
+        assertFalse(aField.equals(nullField));
+    }
+
+    @Test
+    void testFieldNotEqualToOtherObject()
+    {
+        Field aField = new Field(1, 1);
+        Object anObject = new Object();
+
+        assertFalse(aField.equals(anObject));
+    }
 }
