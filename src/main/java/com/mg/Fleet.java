@@ -22,6 +22,10 @@ class Fleet
         this.fleet = new ArrayList<Battleship>();
     }
 
+    public Fleet(int size) {
+        this.fleet = this.initFleet(size, false);
+    }
+
     public ArrayList<Battleship> initFleet(boolean isTest)
     {
         return initFleet(DEFAULT_FLEET_SIZE, isTest);

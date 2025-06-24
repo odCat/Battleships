@@ -8,7 +8,7 @@ class BattleshipsGame
     public static void main(String [] args)
     {
         short numOfGuesses = 0;
-        Fleet fleet = new Fleet();
+        Fleet fleet = new Fleet(3);
         Scanner scan = new Scanner(System.in);
 
         while (true) {
