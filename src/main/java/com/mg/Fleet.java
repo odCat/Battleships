@@ -1,6 +1,8 @@
 package com.mg;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 
 class Fleet
@@ -8,15 +10,24 @@ class Fleet
     static final int DEFAULT_FLEET_SIZE = 3;
     static final int MIN_FLEET_SIZE = 1;
     static final int MAX_FLEET_SIZE = 5;
-    private final ArrayList<Battleship> fleet = initFleet(false);
+    private final ArrayList<Battleship> fleet;
     private String lastKill = "";
 
-    public static ArrayList<Battleship> initFleet(boolean isTest)
+    private List<String> names = new ArrayList<>(Arrays.asList(
+            "Barbarossa", "Bismarck", "Brandenburg", "Hessen",
+            "Hannover", "Markgraf", "Rheinland"
+        ));
+
+    public Fleet() {
+        this.fleet = new ArrayList<Battleship>();
+    }
+
+    public ArrayList<Battleship> initFleet(boolean isTest)
     {
         return initFleet(DEFAULT_FLEET_SIZE, isTest);
     }
 
-    public static ArrayList<Battleship> initFleet(int fleetSize, boolean isTest)
+    public ArrayList<Battleship> initFleet(int fleetSize, boolean isTest)
     {
         if (fleetSize < MIN_FLEET_SIZE)
             fleetSize = MIN_FLEET_SIZE;
@@ -27,16 +38,16 @@ class Fleet
 
         for (int i = 0; i < fleetSize; ++i) {
             if (i == 0) {
-                Battleship newShip = Fleet.buidBattleship(isTest);
+                Battleship newShip = buidBattleship(isTest);
                 result.add(newShip);
             } else {
                 while (true) {
                     boolean collides = false;
-                    Battleship newShip = Fleet.buidBattleship(isTest);
+                    Battleship newShip = buidBattleship(isTest);
                     for (Battleship bs : result) {
                         if (bs.collides(newShip)) {
                             if (!isTest)
-                                newShip.reuseName();
+                                reuseName(newShip);
                             collides = true;
                         }
                     }
@@ -51,11 +62,24 @@ class Fleet
         return result;
     }
 
-    private static Battleship buidBattleship(boolean isTest) {
+    void reuseName(Battleship bs) {
+        if (!this.names.contains(bs.name()))
+            names.add(bs.name());
+    }
+
+    private Battleship buidBattleship(boolean isTest) {
         if (isTest)
             return new Battleship("Test");
         else
-            return new Battleship();
+            return new Battleship(this.chooseName());
+    }
+
+    private String chooseName() {
+        Integer i = (int) (Math.random() * this.names.size());
+        String name = this.names.get(i);
+        this.names.remove(name);
+
+        return name;
     }
 
     public String checkHit(String guess)

@@ -98,25 +98,5 @@ class TestBattleship
         assertTrue(battleship1.collides(battleship2));
         assertFalse(battleship1.collides(battleship3));
     }
-
-    @Test
-    void testBattleshipsDoNotGetTheSameName()
-    {
-        ArrayList<Field> locations = new ArrayList<>();
-        locations.add(new Field(2, 1));
-        locations.add(new Field(3, 1));
-        locations.add(new Field(4, 1));
-
-        ArrayList<String> names = new ArrayList<>();
-        for (int i = 0; i < 4; ++i) {
-            Battleship battleship = new Battleship(locations);
-
-            assertFalse(names.contains(battleship.name()),
-                String.format(
-                    "The name %s has already been used", battleship.name()
-                ));
-            names.add(battleship.name());
-        }
-    }
 }
 

@@ -1,9 +1,7 @@
 package com.mg;
 
-import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 
@@ -11,15 +9,6 @@ public class Battleship
 {
     private ArrayList<Field> location;
     private final String name;
-
-    private static List<String> names = new ArrayList<>(Arrays.asList(
-            "Barbarossa", "Bismarck", "Brandenburg", "Hessen",
-            "Hannover", "Markgraf", "Rheinland"
-        ));
-
-    public Battleship() {
-        this(Battleship.chooseName());
-    }
 
     public Battleship(String name)
     {
@@ -39,21 +28,9 @@ public class Battleship
         }
     }
 
-    public Battleship(ArrayList<Field> location) {
-        this(Battleship.chooseName(), location);
-    }
-
     public Battleship(String name, ArrayList<Field> location) {
         this.name = name;
         this.location = new ArrayList<>(location);
-    }
-
-    private static String chooseName() {
-        Integer i = (int) (Math.random() * Battleship.names.size());
-        String name = Battleship.names.get(i);
-        Battleship.names.remove(name);
-
-        return name;
     }
 
     public String checkHit(String guess)
@@ -121,11 +98,6 @@ public class Battleship
                     return true;
 
         return false;
-    }
-
-    void reuseName() {
-        if (!Battleship.names.contains(this.name()))
-            Battleship.names.add(this.name());
     }
 
     @Override
