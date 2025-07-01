@@ -23,15 +23,15 @@ class Fleet
     }
 
     public Fleet(int size) {
-        this.fleet = this.initFleet(size, false);
+        this.fleet = this.initFleet(size);
     }
 
-    public ArrayList<Battleship> initFleet(boolean isTest)
+    public ArrayList<Battleship> initFleet()
     {
-        return initFleet(DEFAULT_FLEET_SIZE, isTest);
+        return initFleet(DEFAULT_FLEET_SIZE);
     }
 
-    public ArrayList<Battleship> initFleet(int fleetSize, boolean isTest)
+    public ArrayList<Battleship> initFleet(int fleetSize)
     {
         if (fleetSize < MIN_FLEET_SIZE)
             fleetSize = MIN_FLEET_SIZE;
@@ -42,16 +42,15 @@ class Fleet
 
         for (int i = 0; i < fleetSize; ++i) {
             if (i == 0) {
-                Battleship newShip = buidBattleship(isTest);
+                Battleship newShip = buidBattleship();
                 result.add(newShip);
             } else {
                 while (true) {
                     boolean collides = false;
-                    Battleship newShip = buidBattleship(isTest);
+                    Battleship newShip = buidBattleship();
                     for (Battleship bs : result) {
                         if (bs.collides(newShip)) {
-                            if (!isTest)
-                                reuseName(newShip);
+                            reuseName(newShip);
                             collides = true;
                         }
                     }
@@ -71,11 +70,8 @@ class Fleet
             names.add(bs.name());
     }
 
-    private Battleship buidBattleship(boolean isTest) {
-        if (isTest)
-            return new Battleship("Test");
-        else
-            return new Battleship(this.chooseName());
+    private Battleship buidBattleship() {
+        return new Battleship(this.chooseName());
     }
 
     private String chooseName() {
